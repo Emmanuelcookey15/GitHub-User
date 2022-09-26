@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,15 @@ class FavouriteFragment : Fragment() {
         setupRecyclerView()
         setUpObservers()
         recyclerviewTouchListener(view)
+        favouriteAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("userItem", it)
+            }
+            findNavController().navigate(
+                R.id.action_favouriteFragment_to_moreDetailsFragment,
+                bundle
+            )
+        }
     }
 
     private fun setUpObservers() {
