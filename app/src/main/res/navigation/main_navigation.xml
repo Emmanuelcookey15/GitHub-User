@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/favouriteFragment">
+
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.emiko.githubuser.ui.fragment.FavouriteFragment"
+        android:label="FavouriteFragment" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_moreDetailsFragment"
+            app:destination="@id/moreDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.emiko.githubuser.ui.fragment.UsersFragment"
+        android:label="UsersFragment" >
+        <action
+            android:id="@+id/action_usersFragment_to_moreDetailsFragment"
+            app:destination="@id/moreDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreDetailsFragment"
+        android:name="com.emiko.githubuser.ui.fragment.MoreDetailsFragment"
+        android:label="fragment_more_details"
+        tools:layout="@layout/fragment_more_details" >
+        <argument
+            android:name="userItem"
+            app:argType="com.emiko.githubuser.data.models.UsersItem" />
+    </fragment>
+</navigation>
